@@ -1,23 +1,27 @@
-lib = File.expand_path('../lib', __FILE__)
+# frozen_string_literal: true
+
+lib = File.expand_path("../lib", __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'zadok/version'
+require "zadok/version"
 
-Gem::Specification.new do |spec|
-  spec.name          = 'zadok'
-  spec.version       = Zadok::VERSION
-  spec.date          = Time.now.strftime('%Y-%m-%d')
-  spec.authors       = ['Leon Hooijer']
-  spec.email         = ['mail@leonhooijer.nl']
+Gem::Specification.new do |s|
+  s.name          = "zadok"
+  s.version       = Zadok::VERSION
+  s.date          = Time.zone.now.strftime("%Y-%m-%d")
+  s.authors       = ["Leon Hooijer"]
+  s.email         = ["mail@leonhooijer.nl"]
 
-  spec.summary       = 'A data management gem.'
-  spec.description   = spec.summary
-  spec.homepage      = 'https://github.com/leonhooijer/zadok'
-  spec.license       = 'MIT'
+  s.summary       = "A data management gem."
+  s.description   = s.summary
+  s.homepage      = "https://github.com/leonhooijer/zadok"
+  s.license       = "MIT"
 
-  spec.files         = `git ls-files -z`.split("\x0").reject do |f|
+  s.files         = `git ls-files -z`.split("\x0").reject do |f|
     f.match(%r{^(test|spec|features)/})
   end
-  spec.bindir        = 'exe'
-  spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
-  spec.require_paths = ['lib']
+  s.bindir        = "exe"
+  s.executables   = s.files.grep(%r{^exe/}) { |f| File.basename(f) }
+  s.require_paths = ["lib"]
+
+  s.add_development_dependency "rubocop"
 end

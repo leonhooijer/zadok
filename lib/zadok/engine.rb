@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Zadok
   class << self
     attr_writer :configuration
