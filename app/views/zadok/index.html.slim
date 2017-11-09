@@ -1,0 +1,27 @@
+.container[id="#{resource_name.pluralize}-index"]
+  .card
+    .card-body
+      h2.card-title
+        = t("#{resource_name.pluralize}.index")
+        - if can?(:create, resource_name.classify.constantize)
+          = link_to t("#{resource_name.pluralize}.new"), resource_url_for(:new), class: "btn btn-primary text-white float-right"
+
+      = render "filters/edit"
+
+      table.table.table-light.table-bordered.table-striped.table-hover.table-sm
+        thead
+          tr
+            - index_attributes.each do |attr|
+              = sort_table_header(attr, resource_name)
+        tfoot
+          tr
+            td.text-right[colspan=index_attributes.count]
+              = page_entries_info resources
+        tbody
+          = render partial: "#{resource_name.pluralize}/index_row", collection: resources, as: :resource
+
+      = will_paginate resources,
+              inner_window: 1,
+              outer_window: 0,
+              renderer: ZadokLinkRenderer,
+              class: "pagination justify-content-center"
