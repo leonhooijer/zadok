@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require "will_paginate/view_helpers/action_view"
+
 module Zadok
   class LinkRenderer < WillPaginate::ActionView::LinkRenderer
     protected
