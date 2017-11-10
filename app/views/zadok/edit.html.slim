@@ -7,7 +7,7 @@
 
       = form_for(resource, url: resource_url_for(:update), as: resource_name, html: { class: "bg-white" }) do |form|
         - edit_attributes.each do |attr, options|
-          = render "crud/form/fields/#{options[:type]}", resource: resource, form: form, attr: attr, options: options
+          = render "zadok/form/fields/#{options[:type]}", resource: resource, form: form, attr: attr, options: options
 
         .form-group
           = form.submit class: "btn btn-primary text-white"
