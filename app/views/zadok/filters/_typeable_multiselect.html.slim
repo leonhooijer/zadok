@@ -1,0 +1,25 @@
+.textfield.input-group
+  = f.hidden_field filter.param, id: "#{filter.param}_id",
+                                 name: "",
+                                 value: ""
+  = f.text_field filter.param, class: "autocomplete form-control",
+                               id: "#{filter.param}_name",
+                               name: "",
+                               value: "",
+                               autocomplete:"off",
+                               data: { id: "#{filter.data_id}",
+                                       path: filter.data_path,
+                                       type: filter.data_type }
+  .input-group-addon.add-entry id="#{filter.param}_button"
+    .fa.fa-plus
+
+ul.active-filters id="#{filter.param}_list"
+  - if params[filter.param]
+    - params[filter.param].each do |value|
+      li
+        = filter.options[value]
+        = f.hidden_field filter.param, id: "#{filter.param}_#{value}",
+                                       value: value,
+                                       name: "q[#{filter.param}][]"
+        a.remove-entry[href="#"]
+          .fa.fa-times.pull-right

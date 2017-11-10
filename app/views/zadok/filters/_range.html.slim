@@ -1,0 +1,9 @@
+.range
+  = f.text_field filter.param, value: filter.describe(search_params),
+          data: { provide: :slider,
+                  "slider-step": 5,
+                  "slider-value": filter.describe(search_params),
+                  "slider-ticks": filter.ticks,
+                  "slider-ticks_labels": filter.ticks_labels,
+                  "slider-ticks_positions": filter.ticks_positions,
+                  "slider-tooltip": "hide" }

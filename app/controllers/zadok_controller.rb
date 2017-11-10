@@ -59,6 +59,46 @@ class ZadokController < ApplicationController
 
   protected
 
+  def filter_collection
+    Zadok::FilterCollection.new(search_params, filters_namespace)
+  end
+
+  def filters_namespace
+    "filters/#{search_model}".classify.pluralize.constantize
+  end
+
+  def filtered_resources
+    current_search.result
+  end
+
+  def search_params
+    permitted_params.fetch(:q) { {} }
+  end
+
+  def search_model
+    raise "search_model method not implemented"
+  end
+
+  def current_search
+    search_model.ransack(search_params)
+  end
+
+  def search_results
+    current_search.result
+  end
+
+  def page
+    permitted_params.fetch(:page) { nil }
+  end
+
+  def per_page
+    permitted_params.fetch(:per_page) { 30 }
+  end
+
+  def current_sort
+    search_params.fetch(:s) { nil }
+  end
+
   def permitted_params
     params.permit(:page, :per_page, q: %i[s search_model])
   end

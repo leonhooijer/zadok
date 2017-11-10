@@ -1,0 +1,13 @@
+.textfield.numeric_range_field
+  = text_field_tag filter.name, filter.value(params),
+    placeholder: I18n.t("filter_labels.numeric_range.placeholder"),
+    pattern: ' *- *\d+|\d+( *- *(\d+)?)?',
+    "data-role" => "numeric_range",
+    "data-left" => filter.params[0],
+    "data-right" => filter.params[1],
+    "data-content" => filter.popover_content,
+    "data-trigger" => "focus",
+    "data-html" => "true",
+    class: "form-control"
+  = f.hidden_field filter.params[0]
+  = f.hidden_field filter.params[1]

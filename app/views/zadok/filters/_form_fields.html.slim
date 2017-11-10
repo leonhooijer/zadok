@@ -1,0 +1,17 @@
+= form.hidden_field :s, value: current_sort
+= form.hidden_field :search_model, value: search_model
+
+.row
+  - filter_collection.filters.each do |filter|
+    .col-lg-3.col-md-3.col-sm-4.col-xs-12[class=filter.type]
+      = form.label filter.param, filter.i18n_name
+      = render "zadok/filters/#{filter.type}", f: form, filter: filter
+
+.row
+  .col-lg-3.col-md-3.col-sm-4.col-xs-12
+    | &nbsp;
+    = form.submit t("application.buttons.apply"), class: "btn btn-block btn-default"
+  .col-lg-6.col-md-6.col-sm-4.visible-sm-block.visible-md-block.visible-lg-block.hidden
+  .results.col-lg-3.col-md-3.col-sm-4.col-xs-12.text-right
+    = "#{t("filter.amount")}: "
+    .total-results.label.label-default

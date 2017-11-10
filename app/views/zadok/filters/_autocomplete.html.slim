@@ -1,0 +1,8 @@
+.autocomplete.ui-front
+  = f.hidden_field filter.param, value: filter.describe(search_params)
+  = text_field_tag(filter.field_id, filter.field_value(search_params), { role: "autocomplete",
+    class: "form-control",
+    id: filter.field_id,
+    data: { source: filter.source,
+            parent: "#filter-form",
+            target_id: filter.target_field_id }})

@@ -6,7 +6,7 @@
         - if can?(:create, resource_name.classify.constantize)
           = link_to t("#{resource_name.pluralize}.new"), resource_url_for(:new), class: "btn btn-primary text-white float-right"
 
-      = render "filters/edit"
+      = render "zadok/filters/edit"
 
       table.table.table-light.table-bordered.table-striped.table-hover.table-sm
         thead
