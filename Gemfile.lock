@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    zadok (0.1.6)
+    zadok (0.1.7)
       bootstrap (~> 4.0.0.beta2.1)
       cancancan (~> 2.0)
       font-awesome-rails (~> 4.7)

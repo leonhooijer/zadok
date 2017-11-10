@@ -2,10 +2,6 @@
 
 require "active_support/inflector"
 
-Dir[Rails.root + "app/filters/**/*.rb"].each do |file|
-  require_dependency file
-end
-
 module Zadok
   class FilterCollection
     attr_reader :filters, :params
