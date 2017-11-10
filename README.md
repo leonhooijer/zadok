@@ -1,7 +1,7 @@
 # Zadok
 **Why Zadok?**
 
-Zadok was apoointed by kin David to manage his treasuries while he was on the run. This gem is made to manage your application resources. Also the name sounds catchy. 
+Zadok was apoointed by king David to manage his treasuries while he was on the run. This gem is made to manage your application resources. Also the name sounds catchy. 
 
 Some background information:
 
