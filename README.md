@@ -1,6 +1,8 @@
 # Zadok
 
 [![Gem Version](https://badge.fury.io/rb/zadok.svg)](https://badge.fury.io/rb/zadok)
+[![Maintainability](https://api.codeclimate.com/v1/badges/36a46de7e667c1a73fc3/maintainability)](https://codeclimate.com/github/leonhooijer/zadok/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/36a46de7e667c1a73fc3/test_coverage)](https://codeclimate.com/github/leonhooijer/zadok/test_coverage)
 
 **Why Zadok?**
 
