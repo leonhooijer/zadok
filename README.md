@@ -1,4 +1,7 @@
 # Zadok
+
+[![Gem Version](https://badge.fury.io/rb/zadok.svg)](https://badge.fury.io/rb/zadok)
+
 **Why Zadok?**
 
 Zadok was apoointed by king David to manage his treasuries while he was on the run. This gem is made to manage your application resources. Also the name sounds catchy. 
