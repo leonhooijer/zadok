@@ -11,17 +11,30 @@ module Zadok
     end
 
     def page_number(page)
-      css_class = page == current_page ? "page-item active" : "page-item"
-      tag(:li, link(page, page, rel: rel_value(page), class: "page-link"), class: css_class)
+      if page == current_page
+        link_tag = tag(:span, page, class: "page-link")
+        css_class = "active"
+      else
+        css_class = ""
+        link_tag = link(page, page, rel: rel_value(page), class: "page-link")
+      end
+      tag(:li, link_tag, class: "page-item #{css_class}")
     end
 
     def previous_or_next_page(page, text, css_class)
-      css_class += " disabled" unless page
-      tag(:li, link(text, page || "#", class: "page-link"), class: "page-item #{css_class}")
+      link_tag = if page
+
+                   link(text, page, class: "page-link")
+                 else
+                   css_class = "disabled"
+                   tag(:span, text, class: "page-link")
+                 end
+      tag(:li, link_tag, class: "page-item #{css_class}")
     end
 
     def gap
-      tag(:li, tag(:span, "&hellip;"))
+      span_tag = tag(:span, "&hellip;", class: "page-link")
+      tag(:li, span_tag, class: "page-item disabled")
     end
   end
 end
