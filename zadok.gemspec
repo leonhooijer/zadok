@@ -23,8 +23,8 @@ Gem::Specification.new do |s|
   s.executables   = s.files.grep(%r{^exe/}) { |f| File.basename(f) }
   s.require_paths = ["lib"]
 
-  s.add_dependency "bootstrap", "~> 4.0.0.beta2.1"
-  s.add_dependency "cancancan", "~> 2.0"
+  s.add_dependency "bootstrap", "~> 4.0"
+  s.add_dependency "cancancan", "~> 2.1"
   s.add_dependency "font-awesome-rails", "~> 4.7"
   s.add_dependency "jquery-rails", "~> 4.3"
   s.add_dependency "jquery-ui-rails", "~> 6.0"
@@ -35,5 +35,5 @@ Gem::Specification.new do |s|
   s.add_dependency "slim-rails", "~> 3.1"
   s.add_dependency "will_paginate", "~> 3.1"
 
-  s.add_development_dependency "rubocop", "~> 0.51"
+  s.add_development_dependency "rubocop", "~> 0.52"
 end
