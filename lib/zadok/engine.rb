@@ -1,5 +1,9 @@
 # frozen_string_literal: true
 
+Gem.loaded_specs["zadok"].dependencies.each do |d|
+  require d.name
+end
+
 module Zadok
   class << self
     attr_writer :configuration
