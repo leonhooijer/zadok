@@ -1,4 +1,5 @@
 .form-group
+  = form.label attr
   - [true, false].each do |option|
     .form-check.form-check-inline
       = form.radio_button attr, option, class: "form-check-input"
