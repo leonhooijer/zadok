@@ -1,0 +1,5 @@
+.form-group
+  - [true, false].each do |option|
+    .form-check.form-check-inline
+      = form.label, t("zadok.options").fetch(option)
+      = form.radio_button attr, option

@@ -1,0 +1,2 @@
+- options[:field_count].times do
+  = render "zadok/form/fields/#{options[:field_type]}", resource: resource, form: form, attr: attr, options: options.deep_merge(html: { multiple: true })

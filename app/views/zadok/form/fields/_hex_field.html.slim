@@ -1,0 +1,6 @@
+.form-group
+  = form.label attr
+  .input-group-prepend
+    .input-group-text
+      | #
+  = form.text_field attr, options.fetch(:html) { {} }.merge(class: "form-control", maxlength: 6)

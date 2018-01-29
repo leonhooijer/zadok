@@ -23,7 +23,6 @@ module Zadok
 
     def previous_or_next_page(page, text, css_class)
       link_tag = if page
-
                    link(text, page, class: "page-link")
                  else
                    css_class = "disabled"
