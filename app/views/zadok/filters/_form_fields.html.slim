@@ -9,9 +9,8 @@
 
 .row
   .col-lg-3.col-md-3.col-sm-4.col-xs-12
-    | &nbsp;
-    = form.submit t("application.buttons.apply"), class: "btn btn-block btn-default"
+    = form.submit t("application.buttons.apply"), class: "btn btn-block btn-primary"
   .col-lg-6.col-md-6.col-sm-4.visible-sm-block.visible-md-block.visible-lg-block.hidden
   .results.col-lg-3.col-md-3.col-sm-4.col-xs-12.text-right
     = "#{t("filter.amount")}: "
-    .total-results.label.label-default
+    .total-results.badge.badge-primary
