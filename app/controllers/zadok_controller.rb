@@ -10,7 +10,7 @@ class ZadokController < ApplicationController
   helper_method :show_attributes
 
   def show
-    render "zadok/show"
+    render [resources_name, "show"].join("/")
   end
 
   def index
