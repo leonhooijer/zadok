@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 Gem.loaded_specs["zadok"].dependencies.each do |d|
+  next if d.name.in?(%w[bundler-audit])
   require d.name
 end
 
