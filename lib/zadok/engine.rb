@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 Gem.loaded_specs["zadok"].dependencies.each do |d|
-  require d.name
+  require d.name.underscore
 end
 
 module Zadok

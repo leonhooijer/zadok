@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    zadok (0.3.0)
+    zadok (0.3.1)
       bootstrap (~> 4.0)
       bundle-audit (~> 0.1)
       cancancan (~> 2.1)
