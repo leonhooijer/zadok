@@ -24,7 +24,7 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib"]
 
   s.add_dependency "bootstrap", "~> 4.0"
-  s.add_dependency "bundle-audit", "~> 0.1"
+  s.add_dependency "bundler-audit", "~> 0.6"
   s.add_dependency "cancancan", "~> 2.1"
   s.add_dependency "devise", "~> 4.4"
   s.add_dependency "devise-i18n", "~> 1.5"
