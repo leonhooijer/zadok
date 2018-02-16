@@ -45,5 +45,6 @@ Gem::Specification.new do |s|
   s.add_dependency "slim-rails", "~> 3.1"
   s.add_dependency "turbolinks", "~> 5.1"
   s.add_dependency "uglifier", "~> 4.1"
+  s.add_dependency "will-paginate-i18n", "~> 0.1"
   s.add_dependency "will_paginate", "~> 3.1"
 end
