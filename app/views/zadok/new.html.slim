@@ -3,7 +3,7 @@
     .card-body
       h2.card-title
         = t("#{resource_name.pluralize}.new")
-        = link_to t("#{resource_name.pluralize}.index"), resource_url_for(:index), class: "btn btn-primary text-white float-right"
+        = link_to t("activerecord.models.#{resource_name}.other"), resource_url_for(:index), class: "btn btn-primary text-white float-right"
 
       = form_for(resource, html: { autocomplete: "off", class: "bg-white" }) do |form|
         - new_attributes.each do |attr, options|

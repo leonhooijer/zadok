@@ -2,7 +2,7 @@
   .card
     .card-body
       h2.card-title
-        = t("#{resource_name.pluralize}.index")
+        = t("activerecord.models.#{resource_name}.other")
         - if can?(:create, resource_name.classify.constantize)
           = link_to t("#{resource_name.pluralize}.new"), resource_url_for(:new), class: "btn btn-primary text-white float-right"
 
