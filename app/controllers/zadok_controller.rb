@@ -9,13 +9,13 @@ class ZadokController < ApplicationController
   helper_method :resources
   helper_method :show_attributes
 
-  def show
-    render [resources_name, "show"].join("/")
-  end
-
   def index
     filter_and_paginate_resources!
     render "zadok/index"
+  end
+
+  def show
+    render [resources_name, "show"].join("/")
   end
 
   def new
