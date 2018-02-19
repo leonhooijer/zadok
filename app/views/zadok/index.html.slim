@@ -2,8 +2,8 @@
   .card
     .card-body
       h2.card-title
-        = t("activerecord.models.#{resource_name}.other")
-        - if can?(:create, resource_name.classify.constantize)
+        = resources.model_name.human(count: 10)
+        - if can?(:create, resources.klass)
           = link_to(t("#{resource_name.pluralize}.new"),
                     resource_url_for(:new),
                     class: "btn btn-primary text-white float-right")

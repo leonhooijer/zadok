@@ -3,7 +3,7 @@
     .card-body
       h2.card-title
         = t("#{resource_name.pluralize}.new")
-        = link_to(t("activerecord.models.#{resource_name}.other"),
+        = link_to(resources.model_name.human(count: 10),
                   resource_url_for(:index),
                   class: "btn btn-primary text-white float-right")
 
