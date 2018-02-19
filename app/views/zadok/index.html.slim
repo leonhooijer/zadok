@@ -18,7 +18,7 @@
         tfoot
           tr
             td.text-right[colspan=index_attributes.count]
-              = page_entries_info(resources, model: "")
+              = page_entries_info(resources)
         tbody
           = render(partial: "#{resource_name.pluralize}/index_row",
                    collection: resources,
