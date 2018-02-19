@@ -3,11 +3,17 @@
     .card-body
       h2.card-title
         = t("#{resource_name.pluralize}.new")
-        = link_to t("activerecord.models.#{resource_name}.other"), resource_url_for(:index), class: "btn btn-primary text-white float-right"
+        = link_to(t("activerecord.models.#{resource_name}.other"),
+                  resource_url_for(:index),
+                  class: "btn btn-primary text-white float-right")
 
-      = form_for(resource, html: { autocomplete: "off", class: "bg-white" }) do |form|
+      = form_for(resource, html: { autocomplete: "off" }) do |form|
         - new_attributes.each do |attr, options|
-          = render "zadok/form/fields/#{options[:type]}", resource: resource, form: form, attr: attr, options: options
+          = render("zadok/form/fields/#{options[:type]}",
+                   resource: resource,
+                   form: form,
+                   attr: attr,
+                   options: options)
 
         .form-group
-          = form.submit class: "btn btn-primary text-white"
+          = form.submit(class: "btn btn-primary text-white")

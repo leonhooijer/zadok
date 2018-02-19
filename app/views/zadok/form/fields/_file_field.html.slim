@@ -1,7 +1,8 @@
 .form-group
   .custom-file
-    = form.file_field attr, options.fetch(:html) { {} }.merge(class: "custom-file-input")
-    = form.label attr, class: "custom-file-label"
+    = form.file_field(attr,
+                      options.fetch(:html) { {} }.merge(class: "custom-file-input"))
+    = form.label(attr, class: "custom-file-label")
 
   - if options[:preview]
-    = image_tag resource.send(attr).url, class: "logo img-fluid"
+    = image_tag(resource.send(attr).url, class: "logo img-fluid")

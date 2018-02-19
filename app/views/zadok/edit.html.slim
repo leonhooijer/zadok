@@ -3,17 +3,28 @@
     .card-body
       h2.card-title
         = t("#{resource_name.pluralize}.edit")
-        = link_to t("activerecord.models.#{resource_name}.other"), resource_url_for(:index), class: "btn btn-primary text-white float-right"
+        = link_to(t("activerecord.models.#{resource_name}.other"),
+                  resource_url_for(:index),
+                  class: "btn btn-primary text-white float-right")
 
-      = form_for(resource, url: resource_url_for(:update), as: resource_name, html: { autocomplete: "off", class: "bg-white" }) do |form|
+      = form_for(resource,
+                 url: resource_url_for(:update),
+                 as: resource_name,
+                 html: { autocomplete: "off" }) do |form|
         - edit_attributes.each do |attr, options|
-          = render "zadok/form/fields/#{options[:type]}", resource: resource, form: form, attr: attr, options: options
+          = render("zadok/form/fields/#{options[:type]}",
+                   resource: resource,
+                   form: form,
+                   attr: attr,
+                   options: options)
 
         .form-group
-          = form.submit class: "btn btn-primary text-white"
+          = form.submit(class: "btn btn-primary text-white")
+
     - if can?(:destroy, resource)
       .card-footer
-        = link_to(t("#{resource_name.pluralize}.destroy"), resource_url_for(:destroy),
-                data: {confirm: t("#{resource_name.pluralize}.destroy_confirm")},
-                method: :delete,
-                class: "btn btn-danger pull-right")
+        = link_to(t("#{resource_name.pluralize}.destroy"),
+                  resource_url_for(:destroy),
+                  data: { confirm: t("#{resource_name.pluralize}.destroy_confirm") },
+                  method: :delete,
+                  class: "btn btn-danger pull-right")
