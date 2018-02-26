@@ -9,7 +9,6 @@
 
       = form_for(resource,
                  url: resource_url_for(:update),
-                 as: resource_name,
                  html: { autocomplete: "off" }) do |form|
         - edit_attributes.each do |attr, options|
           = render("zadok/form/fields/#{options[:type]}",
