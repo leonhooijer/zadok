@@ -14,7 +14,7 @@
         thead
           tr
             - index_attributes.each do |attr|
-              = sort_table_header(attr, resource_name)
+              = sort_table_header(attr, controller_name.singularize)
         tfoot
           tr
             td.text-right[colspan=index_attributes.count]
