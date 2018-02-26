@@ -1,10 +1,10 @@
-.container.resource-index[id="#{resource_name.pluralize}-index"]
+.container.resource-index[id="#{controller_name}-index"]
   .card
     .card-body
       h2.card-title
-        = resources.model_name.human(count: 10)
+        = resource_name(:other)
         - if can?(:create, resources.klass)
-          = link_to(t("#{resource_name.pluralize}.new"),
+          = link_to(t("#{controller_name}.new"),
                     resource_url_for(:new),
                     class: "btn btn-primary text-white float-right")
 
@@ -20,7 +20,7 @@
             td.text-right[colspan=index_attributes.count]
               = page_entries_info(resources)
         tbody
-          = render(partial: "#{resource_name.pluralize}/index_row",
+          = render(partial: "#{controller_name}/index_row",
                    collection: resources,
                    as: :resource)
 

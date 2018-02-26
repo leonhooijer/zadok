@@ -1,9 +1,9 @@
-.container.resource-edit[id="#{resource_name.pluralize}-edit"]
+.container.resource-edit[id="#{controller_name}-edit"]
   .card
     .card-body
       h2.card-title
-        = t("#{resource_name.pluralize}.edit")
-        = link_to(t("activerecord.models.#{resource_name}.other"),
+        = page_title
+        = link_to(resource_name(:other),
                   resource_url_for(:index),
                   class: "btn btn-primary text-white float-right")
 
@@ -23,8 +23,8 @@
 
     - if can?(:destroy, resource)
       .card-footer
-        = link_to(t("#{resource_name.pluralize}.destroy"),
+        = link_to(t("#{controller_name}.destroy"),
                   resource_url_for(:destroy),
-                  data: { confirm: t("#{resource_name.pluralize}.destroy_confirm") },
+                  data: { confirm: t("#{controller_name}.destroy_confirm") },
                   method: :delete,
                   class: "btn btn-danger pull-right")

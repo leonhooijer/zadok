@@ -2,7 +2,7 @@
 
 module ZadokHelper
   def resource_url_for(action)
-    url_for(controller: resource_name.pluralize, action: action)
+    url_for(controller: controller_name, action: action)
   end
 
   def sort_table_header(attr, model)

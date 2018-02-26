@@ -1,9 +1,9 @@
-.container.resource-new[id="#{resource_name.pluralize}-new"]
+.container.resource-new[id="#{controller_name}-new"]
   .card
     .card-body
       h2.card-title
-        = t("#{resource_name.pluralize}.new")
-        = link_to(resources.model_name.human(count: 10),
+        = page_title
+        = link_to(resource_name(:other),
                   resource_url_for(:index),
                   class: "btn btn-primary text-white float-right")
 

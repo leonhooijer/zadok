@@ -4,7 +4,9 @@ class ZadokController < ApplicationController
   helper_method :edit_attributes
   helper_method :index_attributes
   helper_method :new_attributes
+  helper_method :page_title
   helper_method :resource
+  helper_method :resource_class
   helper_method :resource_name
   helper_method :resources
   helper_method :show_attributes
@@ -15,7 +17,7 @@ class ZadokController < ApplicationController
   end
 
   def show
-    render [resources_name, "show"].join("/")
+    render [controller_name, "show"].join("/")
   end
 
   def new
@@ -24,9 +26,9 @@ class ZadokController < ApplicationController
 
   def create
     if resource.save
-      flash.now[:success] = t("#{resource_name.pluralize}.create_success")
+      flash.now[:success] = t("#{controller_name}.create_success")
       flash.keep(:success)
-      redirect_to url_for(controller: resource_name.pluralize, action: :index)
+      redirect_to url_for(controller: controller_name, action: :index)
     else
       flash.now[:danger] = resource.errors.full_messages.join("<br />")
       render "zadok/new"
@@ -39,7 +41,7 @@ class ZadokController < ApplicationController
 
   def update
     if resource.update(resource_params)
-      flash.now[:success] = t("#{resource_name.pluralize}.update_success")
+      flash.now[:success] = t("#{controller_name}.update_success")
     else
       flash.now[:danger] = resource.errors.full_messages.join("<br />")
     end
@@ -48,13 +50,13 @@ class ZadokController < ApplicationController
 
   def destroy
     if resource.destroy
-      flash.now[:success] = t("#{resource_name.pluralize}.destroy_success")
+      flash.now[:success] = t("#{controller_name}.destroy_success")
       flash.keep(:success)
     else
       flash.now[:danger] = resource.errors.full_messages.join("<br />")
       flash.keep(:danger)
     end
-    redirect_to url_for(controller: resource_name.pluralize, action: :index)
+    redirect_to url_for(controller: controller_name, action: :index)
   end
 
   protected
@@ -64,7 +66,7 @@ class ZadokController < ApplicationController
   end
 
   def filters_namespace
-    "filters/#{search_model}".classify.pluralize.constantize
+    "zadok/filters/#{controller_name}".classify.constantize
   end
 
   def filtered_resources
@@ -73,10 +75,6 @@ class ZadokController < ApplicationController
 
   def search_params
     permitted_params.fetch(:q) { {} }
-  end
-
-  def search_model
-    raise "search_model method not implemented"
   end
 
   def current_search
@@ -104,11 +102,26 @@ class ZadokController < ApplicationController
   end
 
   def resource_params
-    raise "resource_params method not implemented"
+    send("#{controller_name}_params")
   end
 
-  def resource_name
-    raise "resource_name method not implemented"
+  def resource_class
+    controller_name.singularize.camelize.constantize
+  end
+  alias search_model resource_class
+
+  def resource_name(variant = :one)
+    if variant == :zero
+      resource_class.model_name.human(count: 0)
+    elsif variant == :one
+      resource_class.model_name.human(count: 1)
+    elsif variant == :other
+      resource_class.model_name.human(count: 9)
+    end
+  end
+
+  def page_title
+    t("#{controller_name}.#{action_name}")
   end
 
   def resources
