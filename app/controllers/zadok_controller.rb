@@ -102,7 +102,7 @@ class ZadokController < ApplicationController
   end
 
   def resource_params
-    send("#{controller_name}_params")
+    send("#{controller_name.singularize}_params")
   end
 
   def resource_class
