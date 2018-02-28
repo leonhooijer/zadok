@@ -12,12 +12,24 @@ class ZadokController < ApplicationController
   helper_method :show_attributes
 
   def index
-    filter_and_paginate_resources!
-    render "zadok/index"
+    respond_to do |format|
+      format.csv { send_data(generate_csv) }
+      format.html do
+        filter_and_paginate_resources!
+        render "zadok/index"
+      end
+      format.json { render json: resources, root: false }
+      format.xml { render xml: resources, root: false }
+    end
   end
 
   def show
-    render [controller_name, "show"].join("/")
+    respond_to do |format|
+      format.html { render [controller_name, "show"].join("/") }
+      format.json { render json: resource, root: false }
+      format.xml { render xml: resource, root: false }
+    end
+
   end
 
   def new
@@ -150,5 +162,15 @@ class ZadokController < ApplicationController
 
   def edit_attributes
     raise "edit_attributes method not implemented"
+  end
+
+  def generate_csv
+    CSV.generate(headers: true, col_sep: t("zadok.csv.col_sep")) do |csv|
+      csv << resource_class.attribute_names
+
+      resources.each do |resource|
+        csv << resource_class.attribute_names.map { |attr| resource.send(attr) }
+      end
+    end
   end
 end

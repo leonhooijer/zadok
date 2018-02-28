@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    zadok (0.4.3)
+    zadok (0.4.5)
       bootstrap (~> 4.0)
       bundler-audit (~> 0.6)
       cancancan (~> 2.1)
@@ -142,7 +142,7 @@ GEM
     powerpack (0.1.1)
     puma (3.11.2)
     rack (2.0.4)
-    rack-test (0.8.2)
+    rack-test (0.8.3)
       rack (>= 1.0, < 3)
     rails (5.1.5)
       actioncable (= 5.1.5)
