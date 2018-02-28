@@ -19,7 +19,7 @@ class ZadokController < ApplicationController
         render "zadok/index"
       end
       format.json { render json: resources, root: false }
-      format.xml { render xml: resources, root: false }
+      format.xml { render xml: resources.map(&:attributes), root: controller_name }
     end
   end
 
@@ -27,7 +27,7 @@ class ZadokController < ApplicationController
     respond_to do |format|
       format.html { render [controller_name, "show"].join("/") }
       format.json { render json: resource, root: false }
-      format.xml { render xml: resource, root: false }
+      format.xml { render xml: resource.attributes, root: controller_name.singularize }
     end
 
   end
