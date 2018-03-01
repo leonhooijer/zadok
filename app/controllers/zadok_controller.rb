@@ -156,11 +156,19 @@ class ZadokController < ApplicationController
   end
 
   def new_attributes
-    resource_class.attribute_names
+    Hash[
+      resource_class.attribute_types.map do |attr, type|
+        [attr, type.class.name.demodulize.downcase]
+      end
+    ]
   end
 
   def edit_attributes
-    resource_class.attribute_names
+    Hash[
+      resource_class.attribute_types.map do |attr, type|
+        [attr, type.class.name.demodulize.downcase]
+      end
+    ]
   end
 
   def generate_csv

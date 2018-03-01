@@ -1,0 +1,6 @@
+.form-group
+  = form.label(attr)
+  = form.text_area(attr,
+                   options.fetch(:html) { {} }.merge(rows: 5,
+                                                     cols: nil,
+                                                     class: "form-control"))
