@@ -10,5 +10,7 @@
 
       - show_attributes.each do |attr|
         .row
-          .col = attr
-          .col = resource.send(attr)
+          .col.text-right
+            = attr
+          strong.col
+            = resource.send(attr)
