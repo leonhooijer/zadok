@@ -158,7 +158,7 @@ class ZadokController < ApplicationController
   def new_attributes
     Hash[
       resource_class.attribute_types.map do |attr, type|
-        [attr, type.class.name.demodulize.downcase]
+        [attr, { type: type.class.name.demodulize.downcase }]
       end
     ]
   end
@@ -166,7 +166,7 @@ class ZadokController < ApplicationController
   def edit_attributes
     Hash[
       resource_class.attribute_types.map do |attr, type|
-        [attr, type.class.name.demodulize.downcase]
+        [attr, { type: type.class.name.demodulize.downcase }]
       end
     ]
   end
