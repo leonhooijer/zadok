@@ -29,7 +29,6 @@ class ZadokController < ApplicationController
       format.json { render json: resource, root: false }
       format.xml { render xml: resource.attributes, root: controller_name.singularize }
     end
-
   end
 
   def new
@@ -149,19 +148,19 @@ class ZadokController < ApplicationController
   end
 
   def show_attributes
-    raise "show_attributes method not implemented"
+    resource_class.attribute_names
   end
 
   def index_attributes
-    raise "index_attributes method not implemented"
+    resource_class.attribute_names
   end
 
   def new_attributes
-    raise "new_attributes method not implemented"
+    resource_class.attribute_names
   end
 
   def edit_attributes
-    raise "edit_attributes method not implemented"
+    resource_class.attribute_names
   end
 
   def generate_csv
