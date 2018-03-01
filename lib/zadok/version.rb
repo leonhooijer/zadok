@@ -4,7 +4,7 @@ module Zadok
   VERSION_MAJOR = 0
   VERSION_MINOR = 5
   VERSION_TINY = 2
-  VERSION_PRE = nil
+  VERSION_PRE = 1
 
   VERSION = [
     VERSION_MAJOR,
