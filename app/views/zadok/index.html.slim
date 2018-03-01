@@ -20,9 +20,15 @@
             td.text-right[colspan=index_attributes.count]
               = page_entries_info(resources)
         tbody
-          = render(partial: "#{controller_name}/index_row",
-                   collection: resources,
-                   as: :resource)
+          - if template_exists?("#{controller_name}/index_row")
+            = render(partial: "#{controller_name}/index_row",
+                     collection: resources,
+                     as: :resource)
+          - else
+            tr
+              - resources.each do |resource|
+                - index_attributes.each do |attr|
+                  td= resource.send(attr)
 
       = will_paginate(resources,
                       inner_window: 1,
