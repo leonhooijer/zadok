@@ -25,7 +25,7 @@ class ZadokController < ApplicationController
 
   def show
     respond_to do |format|
-      format.html { render [controller_name, "show"].join("/") }
+      format.html { render "zadok/show" }
       format.json { render json: resource, root: false }
       format.xml { render xml: resource.attributes, root: controller_name.singularize }
     end
