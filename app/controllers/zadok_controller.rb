@@ -136,15 +136,15 @@ class ZadokController < ApplicationController
   end
 
   def resources
-    raise "resources method not implemented"
+    @resources
   end
 
   def filter_and_paginate_resources!
-    raise "filter_and_paginate_resources! method not implemented"
+    @resources = filtered_resources.paginate(page: page, per_page: per_page)
   end
 
   def resource
-    raise "resource method not implemented"
+    @resource
   end
 
   def show_attributes
