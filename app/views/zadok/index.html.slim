@@ -20,7 +20,7 @@
             td.text-right[colspan=index_attributes.count]
               = page_entries_info(resources)
         tbody
-          - if template_exists?("#{controller_name}/index_row")
+          - if template_exists?("#{controller_name}/index_row", [], true)
             = render(partial: "#{controller_name}/index_row",
                      collection: resources,
                      as: :resource)

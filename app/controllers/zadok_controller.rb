@@ -10,6 +10,7 @@ class ZadokController < ApplicationController
   helper_method :resource_name
   helper_method :resources
   helper_method :show_attributes
+  helper_method :template_exists?
 
   def index
     respond_to do |format|
