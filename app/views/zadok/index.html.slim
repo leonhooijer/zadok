@@ -3,7 +3,7 @@
     .card-body
       h2.card-title
         = resource_name(:other)
-        - if can?(:create, resources.klass)
+        - if can?(:create, resource_class)
           = link_to(t("#{controller_name}.new"),
                     resource_url_for(:new),
                     class: "btn btn-primary text-white float-right")
@@ -26,9 +26,10 @@
                      as: :resource)
           - else
             - resources.each do |resource|
-              tr
+              tr.resource-row
                 - index_attributes.each do |attr|
-                  td= resource.send(attr)
+                  td
+                    = link_to(resource.send(attr), resource)
 
       = will_paginate(resources,
                       inner_window: 1,
