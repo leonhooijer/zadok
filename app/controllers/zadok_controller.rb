@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
 class ZadokController < ApplicationController
-  attr_reader :resources, :resource
-
   helper_method :edit_attributes
   helper_method :index_attributes
   helper_method :new_attributes
@@ -119,6 +117,14 @@ class ZadokController < ApplicationController
 
   def resource_params
     send("#{controller_name.singularize}_params")
+  end
+
+  def resources
+    @resources
+  end
+
+  def resource
+    @resource
   end
 
   def resource_class
