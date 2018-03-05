@@ -2,7 +2,7 @@
   .card
     .card-body
       h2.card-title
-        = resource.name
+        = resource_name
         - if can?(:edit, resource_class)
           = link_to(t("#{controller_name}.edit"),
                     resource_url_for(:edit),
