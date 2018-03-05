@@ -81,6 +81,8 @@ class ZadokController < ApplicationController
 
   def filters_namespace
     "zadok/filters/#{controller_name}".classify.constantize
+  rescue NameError => _e
+    Zadok::Filters
   end
 
   def filtered_resources
