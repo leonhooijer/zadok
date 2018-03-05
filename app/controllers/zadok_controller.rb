@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class ZadokController < ApplicationController
+  attr_reader :resources, :resource
+
   helper_method :edit_attributes
   helper_method :index_attributes
   helper_method :new_attributes
@@ -136,16 +138,8 @@ class ZadokController < ApplicationController
     t("#{controller_name}.#{action_name}")
   end
 
-  def resources
-    @resources
-  end
-
   def filter_and_paginate_resources!
     @resources = filtered_resources.paginate(page: page, per_page: per_page)
-  end
-
-  def resource
-    @resource
   end
 
   def show_attributes
