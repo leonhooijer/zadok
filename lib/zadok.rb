@@ -4,7 +4,6 @@ require "zadok/engine"
 require "zadok/filter_collection"
 require "zadok/link_renderer"
 
-require "zadok/filters/null_filter"
 require "zadok/filters/ransack/base"
 require "zadok/filters/ransack/autocomplete_filter"
 require "zadok/filters/ransack/hidden_filter"
