@@ -17,7 +17,7 @@ class ZadokController < ApplicationController
       format.csv { send_data(generate_csv) }
       format.html do
         filter_and_paginate_resources!
-        render "zadok/index"
+        render resource_template(:index)
       end
       format.json { render json: resources, root: false }
       format.xml { render xml: resources.map(&:attributes), root: controller_name }
@@ -26,14 +26,14 @@ class ZadokController < ApplicationController
 
   def show
     respond_to do |format|
-      format.html { render "zadok/show" }
+      format.html { render resource_template(:show) }
       format.json { render json: resource, root: false }
       format.xml { render xml: resource.attributes, root: controller_name.singularize }
     end
   end
 
   def new
-    render "zadok/new"
+    render resource_template(:new)
   end
 
   def create
@@ -43,12 +43,12 @@ class ZadokController < ApplicationController
       redirect_to url_for(controller: controller_name, action: :index)
     else
       flash.now[:danger] = resource.errors.full_messages.join("<br />")
-      render "zadok/new"
+      render resource_template(:new)
     end
   end
 
   def edit
-    render "zadok/edit"
+    render resource_template(:edit)
   end
 
   def update
@@ -57,7 +57,7 @@ class ZadokController < ApplicationController
     else
       flash.now[:danger] = resource.errors.full_messages.join("<br />")
     end
-    render "zadok/edit"
+    render resource_template(:edit)
   end
 
   def destroy
@@ -139,6 +139,14 @@ class ZadokController < ApplicationController
       resource_class.model_name.human(count: 1)
     elsif variant == :other
       resource_class.model_name.human(count: 9)
+    end
+  end
+
+  def resource_template(action)
+    if template_exists?("#{controller_name}/#{action}")
+      "#{controller_name}/#{action}"
+    else
+      "zadok/#{action}"
     end
   end
 
