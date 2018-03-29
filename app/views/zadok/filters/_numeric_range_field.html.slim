@@ -1,6 +1,6 @@
 .textfield.numeric_range_field
   = text_field_tag filter.name, filter.value(params),
-    placeholder: I18n.t("filter_labels.numeric_range.placeholder"),
+    placeholder: I18n.t("filter.labels.numeric_range.placeholder"),
     pattern: ' *- *\d+|\d+( *- *(\d+)?)?',
     "data-role" => "numeric_range",
     "data-left" => filter.params[0],

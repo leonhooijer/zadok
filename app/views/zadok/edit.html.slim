@@ -22,8 +22,8 @@
 
     - if can?(:destroy, resource)
       .card-footer
-        = link_to(t("#{controller_name}.destroy"),
+        = link_to(t("zadok.destroy.action", model: resource_name),
                   resource_url_for(:destroy),
-                  data: { confirm: t("#{controller_name}.destroy_confirm") },
+                  data: { confirm: t("zadok.destroy.confirm", model: resource_name) },
                   method: :delete,
                   class: "btn btn-danger pull-right")

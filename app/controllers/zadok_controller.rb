@@ -38,7 +38,7 @@ class ZadokController < ApplicationController
 
   def create
     if resource.save
-      flash.now[:success] = t("#{controller_name}.create_success")
+      flash.now[:success] = t("zadok.create.success", model: resource_name)
       flash.keep(:success)
       redirect_to url_for(controller: controller_name, action: :index)
     else
@@ -53,7 +53,7 @@ class ZadokController < ApplicationController
 
   def update
     if resource.update(resource_params)
-      flash.now[:success] = t("#{controller_name}.update_success")
+      flash.now[:success] = t("zadok.update.success", model: resource_name)
     else
       flash.now[:danger] = resource.errors.full_messages.join("<br />")
     end
@@ -62,7 +62,7 @@ class ZadokController < ApplicationController
 
   def destroy
     if resource.destroy
-      flash.now[:success] = t("#{controller_name}.destroy_success")
+      flash.now[:success] = t("zadok.destroy.success", model: resource_name)
       flash.keep(:success)
     else
       flash.now[:danger] = resource.errors.full_messages.join("<br />")
@@ -151,7 +151,7 @@ class ZadokController < ApplicationController
   end
 
   def page_title
-    t("#{controller_name}.#{action_name}")
+    t("zadok.#{action_name}.action", model: resource_name)
   end
 
   def filter_and_paginate_resources!
