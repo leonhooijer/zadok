@@ -4,7 +4,7 @@
       h2.card-title
         = resource_name(:other)
         - if can?(:create, resource_class)
-          = link_to(t("zadok.new.action", model: resource_name)),
+          = link_to(t("zadok.new.action", model: resource_name),
                     resource_url_for(:new),
                     class: "btn btn-primary text-white float-right")
 
