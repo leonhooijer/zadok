@@ -186,7 +186,7 @@ class ZadokController < ApplicationController
     CSV.generate(headers: true, col_sep: t("zadok.csv.col_sep")) do |csv|
       csv << resource_class.attribute_names
 
-      resources.each do |resource|
+      filtered_resources.each do |resource|
         csv << resource_class.attribute_names.map { |attr| resource.send(attr) }
       end
     end
