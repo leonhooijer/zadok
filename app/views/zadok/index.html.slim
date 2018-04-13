@@ -23,7 +23,8 @@
           - if template_exists?("#{controller_name}/index_row", [], true)
             = render(partial: "#{controller_name}/index_row",
                      collection: resources,
-                     as: :resource)
+                     as: :resource,
+                     caching: true)
           - else
             - resources.each do |resource|
               tr.resource-row
