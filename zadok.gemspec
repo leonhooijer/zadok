@@ -25,6 +25,7 @@ Gem::Specification.new do |s|
 
   s.add_dependency "bootstrap", "~> 4.0"
   s.add_dependency "bundler-audit", "~> 0.6"
+  s.add_dependency "brakeman", "~> 4.3"
   s.add_dependency "cancancan", "~> 2.1"
   s.add_dependency "devise", "~> 4.4"
   s.add_dependency "devise-i18n", "~> 1.5"
@@ -33,6 +34,7 @@ Gem::Specification.new do |s|
   s.add_dependency "jquery-rails", "~> 4.3"
   s.add_dependency "jquery-turbolinks", "~> 2.1"
   s.add_dependency "jquery-ui-rails", "~> 6.0"
+  s.add_dependency "loaf", "~> 0.6"
   s.add_dependency "localer", "~> 0.1"
   s.add_dependency "pg", "~> 1.0"
   s.add_dependency "puma", "~> 3.11"
