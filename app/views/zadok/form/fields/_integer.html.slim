@@ -1,4 +1,3 @@
 .form-group
   = form.label(attr)
-  = form.number_field(attr,
-                      options.fetch(:html) { {} }.merge(class: "form-control"))
+  = form.number_field(attr, options.fetch(:html, {}).merge(class: "form-control"))

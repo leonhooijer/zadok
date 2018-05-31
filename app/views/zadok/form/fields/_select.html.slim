@@ -4,5 +4,5 @@
   = form.select(attr,
                 options_for_select(options[:choices],
                 resource.send(attr)),
-                options.fetch(:options) { {} },
-                options.fetch(:html) { {} }.merge(class: "custom-select"))
+                options.fetch(:options, {}),
+                options.fetch(:html, {}).merge(class: "custom-select"))
