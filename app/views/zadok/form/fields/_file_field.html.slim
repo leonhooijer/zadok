@@ -3,5 +3,5 @@
     = form.file_field(attr, options.fetch(:html, {}).merge(class: "custom-file-input"))
     = form.label(attr, class: "custom-file-label")
 
-  - if options[:preview] && resource.send(attr).attached? && resource.send(attr).image?
+  - if options[:preview] && resource.send(attr).try(:image?)
     = image_tag(resource.send(attr), class: "logo img-fluid")
