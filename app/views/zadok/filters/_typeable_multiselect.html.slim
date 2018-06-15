@@ -1,8 +1,8 @@
 .textfield.input-group
-  = f.hidden_field filter.param, id: "#{filter.param}_id",
+  = form.hidden_field filter.param, id: "#{filter.param}_id",
                                  name: "",
                                  value: ""
-  = f.text_field filter.param, class: "autocomplete form-control",
+  = form.text_field filter.param, class: "autocomplete form-control",
                                id: "#{filter.param}_name",
                                name: "",
                                value: "",
@@ -18,7 +18,7 @@ ul.active-filters id="#{filter.param}_list"
     - params[filter.param].each do |value|
       li
         = filter.options[value]
-        = f.hidden_field filter.param, id: "#{filter.param}_#{value}",
+        = form.hidden_field filter.param, id: "#{filter.param}_#{value}",
                                        value: value,
                                        name: "q[#{filter.param}][]"
         a.remove-entry[href="#"]

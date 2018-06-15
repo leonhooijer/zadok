@@ -1,5 +1,5 @@
 .range
-  = f.text_field filter.param, value: filter.describe(search_params),
+  = form.text_field filter.param, value: filter.describe(search_params),
           data: { provide: :slider,
                   "slider-step": 5,
                   "slider-value": filter.describe(search_params),

@@ -5,7 +5,7 @@
   - filter_collection.filters.each do |filter|
     .col-lg-3.col-md-3.col-sm-4.col-xs-12[class=filter.type]
       = form.label filter.param, filter.i18n_name
-      = render "zadok/filters/#{filter.type}", f: form, filter: filter
+      = render "zadok/filters/#{filter.type}", form: form, filter: filter
 
 .row.form-group
   .col-lg-3.col-md-3.col-sm-4.col-xs-12
