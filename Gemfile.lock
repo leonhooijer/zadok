@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    zadok (0.7.1)
+    zadok (0.7.3)
       bootstrap (~> 4.0)
       brakeman (~> 4.3)
       bundler-audit (~> 0.6)
@@ -75,7 +75,7 @@ GEM
       tzinfo (~> 1.1)
     arel (9.0.0)
     ast (2.4.0)
-    autoprefixer-rails (8.6.0)
+    autoprefixer-rails (8.6.2)
       execjs
     bcrypt (3.1.12)
     bcrypt (3.1.12-x64-mingw32)
@@ -83,7 +83,7 @@ GEM
       autoprefixer-rails (>= 6.0.3)
       popper_js (>= 1.12.9, < 2)
       sass (>= 3.5.2)
-    brakeman (4.3.0)
+    brakeman (4.3.1)
     builder (3.2.3)
     bundler-audit (0.6.0)
       bundler (~> 1.2)
@@ -112,10 +112,10 @@ GEM
       railties (>= 3.2, < 6.0)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
-    highline (1.7.10)
+    highline (2.0.0)
     i18n (1.0.1)
       concurrent-ruby (~> 1.0)
-    jaro_winkler (1.4.0)
+    jaro_winkler (1.5.1)
     jquery-rails (4.3.3)
       rails-dom-testing (>= 1, < 3)
       railties (>= 4.2.0)
@@ -157,7 +157,7 @@ GEM
     polyamorous (1.3.3)
       activerecord (>= 3.0)
     popper_js (1.12.9)
-    powerpack (0.1.1)
+    powerpack (0.1.2)
     puma (3.11.4)
     rack (2.0.5)
     rack-test (1.0.0)
@@ -203,8 +203,8 @@ GEM
     responders (2.4.0)
       actionpack (>= 4.2.0, < 5.3)
       railties (>= 4.2.0, < 5.3)
-    rubocop (0.57.0)
-      jaro_winkler (~> 1.4.0)
+    rubocop (0.57.2)
+      jaro_winkler (~> 1.5.1)
       parallel (~> 1.10)
       parser (>= 2.5)
       powerpack (~> 0.1)
@@ -212,7 +212,7 @@ GEM
       ruby-progressbar (~> 1.7)
       unicode-display_width (~> 1.0, >= 1.0.1)
     ruby-progressbar (1.9.0)
-    rumination (0.17.2)
+    rumination (0.17.4)
       activemodel
       activesupport
       dotenv
