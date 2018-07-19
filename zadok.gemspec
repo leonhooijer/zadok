@@ -30,7 +30,6 @@ Gem::Specification.new do |s|
   s.add_dependency "devise", "~> 4.4"
   s.add_dependency "devise-i18n", "~> 1.5"
   s.add_dependency "devise_invitable", "~> 1.7"
-  s.add_dependency "font-awesome-sass", "~> 5.0"
   s.add_dependency "jquery-rails", "~> 4.3"
   s.add_dependency "jquery-turbolinks", "~> 2.1"
   s.add_dependency "jquery-ui-rails", "~> 6.0"
