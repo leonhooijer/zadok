@@ -3,9 +3,10 @@
     .card-body
       h2.card-title
         = page_title
-        = link_to(resource_name(:other),
-                  resource_url_for(:index),
-                  class: "btn btn-primary text-white float-right")
+        - if can?(:index, resource_class)
+          = link_to(resource_name(:other),
+                    resource_url_for(:index),
+                    class: "btn btn-primary text-white float-right")
 
       = form_for(resource,
                  url: resource_url_for(:update),
