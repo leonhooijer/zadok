@@ -9,15 +9,14 @@ module ZadokHelper
     name = t("activerecord.attributes.#{model}.#{attr}")
 
     cell_contents = if current_sort == "#{attr} asc"
-                      [name, fa_icon("chevron-down", class: "pull-right")]
+                      [name, icon(:fas, "chevron-down", class: "pull-right")]
                     elsif current_sort == "#{attr} desc"
-                      [name, fa_icon("chevron-up", class: "pull-right")]
+                      [name, icon(:fas, "chevron-up", class: "pull-right")]
                     else
                       [name]
                     end
 
-    content_tag(:th, class: "sortable",
-                     data: { href: sort_url(current_search, attr) }) do
+    content_tag(:th, class: "sortable", data: { href: sort_url(current_search, attr) }) do
       safe_join(cell_contents, " ")
     end
   end

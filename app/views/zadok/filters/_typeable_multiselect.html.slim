@@ -11,7 +11,7 @@
                                        path: filter.data_path,
                                        type: filter.data_type }
   .input-group-addon.add-entry id="#{filter.param}_button"
-    .fa.fa-plus
+    .fas.fa-plus
 
 ul.active-filters id="#{filter.param}_list"
   - if params[filter.param]
@@ -22,4 +22,4 @@ ul.active-filters id="#{filter.param}_list"
                                        value: value,
                                        name: "q[#{filter.param}][]"
         a.remove-entry[href="#"]
-          .fa.fa-times.pull-right
+          .fas.fa-times.pull-right
