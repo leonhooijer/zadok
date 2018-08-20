@@ -9,9 +9,9 @@ module ZadokHelper
     name = t("activerecord.attributes.#{model}.#{attr}")
 
     cell_contents = if current_sort == "#{attr} asc"
-                      [name, icon(:fas, "chevron-down", class: "pull-right")]
+                      [name, icon(:fas, "chevron-down", class: "float-right")]
                     elsif current_sort == "#{attr} desc"
-                      [name, icon(:fas, "chevron-up", class: "pull-right")]
+                      [name, icon(:fas, "chevron-up", class: "float-right")]
                     else
                       [name]
                     end
