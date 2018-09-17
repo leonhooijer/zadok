@@ -11,6 +11,6 @@
       - show_attributes.each do |attr|
         .row
           .col.text-right
-            = attr
+            = t("activerecord.attributes.#{resource.model_name.i18n_key}.#{attr}")
           strong.col
             = resource.send(attr)
