@@ -3,7 +3,7 @@
     .card-body
       h2.card-title
         = resource_name
-        - if can?(:edit, resource_class)
+        - if can?(:edit, resource)
           = link_to(t("zadok.edit.action", model: resource_name),
                     resource_url_for(:edit),
                     class: "btn btn-primary text-white float-right")
