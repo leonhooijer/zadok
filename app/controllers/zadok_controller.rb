@@ -112,6 +112,10 @@ class ZadokController < ApplicationController
     params.permit(:page, :per_page, q: %i[s search_model])
   end
 
+  define_method("#{controller_name.singularize}_params") do
+    params.require(controller_name.singularize).permit!
+  end
+
   def resource_params
     send("#{controller_name.singularize}_params")
   end
@@ -152,7 +156,7 @@ class ZadokController < ApplicationController
   end
 
   def filter_and_paginate_resources!
-    @resources = filtered_resources.paginate(page: page, per_page: per_page)
+    instance_variable_set("@#{controller_name}", filtered_resources.paginate(page: page, per_page: per_page))
   end
 
   def show_attributes
@@ -166,16 +170,20 @@ class ZadokController < ApplicationController
   def new_attributes
     Hash[
       resource_class.attribute_types.map do |attr, type|
+        next if attr.in?(%w[id created_at updated_at])
+
         [attr, { type: type.class.name.demodulize.underscore }]
-      end
+      end.compact
     ]
   end
 
   def edit_attributes
     Hash[
       resource_class.attribute_types.map do |attr, type|
+        next if attr.in?(%w[id created_at updated_at])
+
         [attr, { type: type.class.name.demodulize.underscore }]
-      end
+      end.compact
     ]
   end
 
