@@ -116,12 +116,12 @@ class ZadokController < ApplicationController
     send("#{controller_name.singularize}_params")
   end
 
-  def resources
-    @resources
+  def resource
+    instance_variable_get("@#{controller_name.singularize}")
   end
 
-  def resource
-    @resource
+  def resources
+    instance_variable_get("@#{controller_name}")
   end
 
   def resource_class
