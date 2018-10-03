@@ -38,10 +38,10 @@ class ZadokController < ApplicationController
 
   def create
     if resource.save
-      flash[:success] = t("zadok.create.success", model: resource_name)
+      flash.success(t("zadok.create.success", model: resource_name))
       redirect_to url_for(controller: controller_name, action: :index)
     else
-      flash[:danger] = resource.errors.full_messages
+      flash.danger(resource.errors.full_messages)
       render resource_template(:new)
     end
   end
@@ -52,18 +52,18 @@ class ZadokController < ApplicationController
 
   def update
     if resource.update(resource_params)
-      flash[:success] = t("zadok.update.success", model: resource_name)
+      flash.success(t("zadok.update.success", model: resource_name))
     else
-      flash[:danger] = resource.errors.full_messages
+      flash.danger(resource.errors.full_messages)
     end
     render resource_template(:edit)
   end
 
   def destroy
     if resource.destroy
-      flash[:success] = t("zadok.destroy.success", model: resource_name)
+      flash.success(t("zadok.destroy.success", model: resource_name))
     else
-      flash[:danger] = resource.errors.full_messages
+      flash.danger(resource.errors.full_messages)
     end
     redirect_to url_for(controller: controller_name, action: :index)
   end
