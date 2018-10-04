@@ -97,11 +97,11 @@ class ZadokController < ApplicationController
   end
 
   def page
-    permitted_params.fetch(:page) { nil }
+    permitted_params.fetch(:page, 1)
   end
 
   def per_page
-    permitted_params.fetch(:per_page) { 30 }
+    permitted_params.fetch(:per_page, 30)
   end
 
   def current_sort
