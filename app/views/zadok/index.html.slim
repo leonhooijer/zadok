@@ -1,16 +1,15 @@
 .container.resource-index[id="#{controller_name}-index"]
   .card
+    h2.card-header
+      = resource_name(:other)
+      - if can?(:create, resource_class)
+        = link_to(t("zadok.new.action", model: resource_name),
+                resource_url_for(:new),
+                class: "btn btn-primary text-white float-right")
     .card-body
-      h2.card-title
-        = resource_name(:other)
-        - if can?(:create, resource_class)
-          = link_to(t("zadok.new.action", model: resource_name),
-                    resource_url_for(:new),
-                    class: "btn btn-primary text-white float-right")
-
       = render "zadok/filters/edit"
 
-      table.table.table-light.table-bordered.table-striped.table-hover.table-sm
+      table.table.table-light.table-bordered.table-striped.table-hover.table-sm.mb-0
         thead
           tr
             - index_attributes.each do |attr|
@@ -37,3 +36,7 @@
                       outer_window: 0,
                       renderer: Zadok::LinkRenderer,
                       class: "pagination justify-content-center")
+
+    - if can?(:export, resource_class)
+      .card-footer
+        = link_to(t("zadok.export.csv", model: resource_name(:other)), url_for(controller: controller_name, action: :index, format: :csv), class: "btn btn-excel")
