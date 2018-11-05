@@ -41,7 +41,7 @@ class ZadokController < ApplicationController
       flash.success(t("zadok.create.success", model: resource_name))
       redirect_to url_for(controller: controller_name, action: :index)
     else
-      flash.danger(resource.errors.full_messages)
+      resource.errors.full_messages.each { |message| flash.danger(message) }
       render resource_template(:new)
     end
   end
@@ -54,7 +54,7 @@ class ZadokController < ApplicationController
     if resource.update(resource_params)
       flash.success(t("zadok.update.success", model: resource_name))
     else
-      flash.danger(resource.errors.full_messages)
+      resource.errors.full_messages.each { |message| flash.danger(message) }
     end
     render resource_template(:edit)
   end
@@ -63,7 +63,7 @@ class ZadokController < ApplicationController
     if resource.destroy
       flash.success(t("zadok.destroy.success", model: resource_name))
     else
-      flash.danger(resource.errors.full_messages)
+      fresource.errors.full_messages.each { |message| flash.danger(message) }
     end
     redirect_to url_for(controller: controller_name, action: :index)
   end
