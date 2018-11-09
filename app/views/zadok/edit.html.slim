@@ -1,13 +1,13 @@
 .container.resource-edit[id="#{controller_name}-edit"]
   .card
-    .card-body
-      h2.card-title
-        = page_title
-        - if can?(:index, resource_class)
-          = link_to(t("zadok.index.action", model: resource_name(:other)),
-                    resource_url_for(:index),
-                    class: "btn btn-primary text-white float-right")
+    h2.card-header
+      = page_title
+      - if can?(:index, resource_class)
+        = link_to(t("zadok.index.action", model: resource_name(:other)),
+                resource_url_for(:index),
+                class: "btn btn-primary text-white float-right")
 
+    .card-body
       = form_for(resource,
                  url: resource_url_for(:update),
                  html: { autocomplete: "off" }) do |form|

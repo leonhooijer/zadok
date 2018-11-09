@@ -1,17 +1,17 @@
 .container.resource-show[id="#{controller_name}-show"]
   .card
-    .card-body
-      h2.card-title
-        = resource_name
-        - if can?(:edit, resource)
-          = link_to(t("zadok.edit.action", model: resource_name),
-                    resource_url_for(:edit),
-                    class: "btn btn-primary text-white float-right")
-        - if can?(:index, resource_class)
-          = link_to(t("zadok.index.action", model: resource_name(:other)),
-                  resource_url_for(:index),
-                  class: "btn btn-primary text-white float-right mr-3")
+    h2.card-header
+      = resource_name
+      - if can?(:edit, resource)
+        = link_to(t("zadok.edit.action", model: resource_name),
+                resource_url_for(:edit),
+                class: "btn btn-primary text-white float-right")
+      - if can?(:index, resource_class)
+        = link_to(t("zadok.index.action", model: resource_name(:other)),
+                resource_url_for(:index),
+                class: "btn btn-primary text-white float-right mr-3")
 
+    .card-body
       - show_attributes.each do |attr|
         .row
           .col.text-right

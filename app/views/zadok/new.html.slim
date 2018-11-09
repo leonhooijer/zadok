@@ -1,13 +1,13 @@
 .container.resource-new[id="#{controller_name}-new"]
   .card
-    .card-body
-      h2.card-title
-        = page_title
-        - if can?(:index, resource_class)
-          = link_to(t("zadok.index.action", model: resource_name(:other)),
-                    resource_url_for(:index),
-                    class: "btn btn-primary text-white float-right")
+    h2.card-header
+      = page_title
+      - if can?(:index, resource_class)
+        = link_to(t("zadok.index.action", model: resource_name(:other)),
+                resource_url_for(:index),
+                class: "btn btn-primary text-white float-right")
 
+    .card-body
       = form_for(resource, html: { autocomplete: "off" }) do |form|
         - new_attributes.each do |attr, options|
           = render("zadok/form/fields/#{options[:type]}",
