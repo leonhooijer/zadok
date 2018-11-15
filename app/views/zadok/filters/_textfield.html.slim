@@ -1,2 +1,2 @@
 .textfield
-  = form.text_field filter.param, class: "form-control"
+  = form.text_field(filter.param, value: filter.describe(search_params), class: "form-control")
